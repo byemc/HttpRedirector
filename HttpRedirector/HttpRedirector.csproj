@@ -6,6 +6,7 @@
 	  <UseWindowsForms>true</UseWindowsForms>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <TargetPlatformIdentifier>windows</TargetPlatformIdentifier>
+      <EnableWindowsTargeting>True</EnableWindowsTargeting>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>embedded</DebugType>
