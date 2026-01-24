@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "HttpRedirector": {
+      "commandName": "Project",
+      "commandLineArgs": "https://byemc.xyz"
+    }
+  }
+}
