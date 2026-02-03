@@ -3,7 +3,6 @@ using System.Runtime.Versioning;
 
 namespace HttpRedirector
 {
-    [SupportedOSPlatform("windows")]
     internal static class Program
     {
         internal static Settings Settings;

@@ -16,7 +16,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_B353B2F99EB24B769A33139D8DB96FD1"
+        "MsmKey" = "8:_83094FD004FC46808C9139915011117F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -70,6 +70,17 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:FALSE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
         }
     }
     "Deployable"
@@ -158,20 +169,20 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:HTTP Redirector"
         "ProductCode" = "8:{EEB2B669-B0ED-4A19-B884-F78DF2B5C8A6}"
-        "PackageCode" = "8:{9D43D4D1-19AC-473D-BC6E-2D8758788152}"
+        "PackageCode" = "8:{1D93661E-07C1-40AF-A4A3-62245DF7E8B5}"
         "UpgradeCode" = "8:{7CCE0963-83C9-4531-9D10-CB7EBAA31F78}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:byespace software"
+        "Manufacturer" = "8:byespace"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:HTTP Redirector Setup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:byespace software"
+        "ARPCONTACT" = "8:byespace"
         "Keywords" = "8:Browser"
         "ARPCOMMENTS" = "8:Redirects url opens to an installed browser"
         "ARPURLINFOABOUT" = "8:https://byemc.xyz"
@@ -310,29 +321,29 @@
                                                         }
                                                         "Values"
                                                         {
-                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_360BB69981EE41AF946E33AF80D4BC66"
-                                                            {
-                                                            "Name" = "8:.xhtml"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:HttpRedirectorUrl"
-                                                            }
-                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_37B1378D1F61400686755A4B9C3FC4FD"
-                                                            {
-                                                            "Name" = "8:.html"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:HttpRedirectorUrl"
-                                                            }
-                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_5611017CE7C44BA8BEA3034EFAD29984"
+                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_305372C6A2764875A08FDF1D02224BB8"
                                                             {
                                                             "Name" = "8:.htm"
                                                             "Condition" = "8:"
                                                             "Transitive" = "11:FALSE"
                                                             "ValueTypes" = "3:1"
-                                                            "Value" = "8:HttpRedirectorUrl"
+                                                            "Value" = "8:HttpRedirectorFile"
+                                                            }
+                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_4CCA9F5E6F614D049038234FF6EF3942"
+                                                            {
+                                                            "Name" = "8:.html"
+                                                            "Condition" = "8:"
+                                                            "Transitive" = "11:FALSE"
+                                                            "ValueTypes" = "3:1"
+                                                            "Value" = "8:HttpRedirectorFile"
+                                                            }
+                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_F79ACE52FBF04B1FBB7779FCD4B4F85D"
+                                                            {
+                                                            "Name" = "8:.xhtml"
+                                                            "Condition" = "8:"
+                                                            "Transitive" = "11:FALSE"
+                                                            "ValueTypes" = "3:1"
+                                                            "Value" = "8:HttpRedirectorFile"
                                                             }
                                                         }
                                                     }
@@ -449,6 +460,20 @@
                                     }
                                 }
                             }
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_B186B0EC4F2949CBB04C3212AEBF5D1E"
+                            {
+                            "Name" = "8:Clients"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                }
+                                "Values"
+                                {
+                                }
+                            }
                         }
                         "Values"
                         {
@@ -494,15 +519,37 @@
             {
                 "Keys"
                 {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_D9DEDCD885B14B348F3C36F20226CF2B"
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_99A6B4946DF84E75A1F5776C435625FC"
                     {
                     "Name" = "8:HttpRedirectorUrl"
                     "Condition" = "8:"
                     "AlwaysCreate" = "11:FALSE"
-                    "DeleteAtUninstall" = "11:TRUE"
+                    "DeleteAtUninstall" = "11:FALSE"
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_127591AEF7DA4A15A1C1C35BF1DE3783"
+                            {
+                            "Name" = "8:DefaultIcon"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                }
+                                "Values"
+                                {
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E9F65AD902D742EEB6704A0E4A596D04"
+                                    {
+                                    "Name" = "8:"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:C:\\Windows\\System32\\url.dll,5"
+                                    }
+                                }
+                            }
                             "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_6F8573F7F11045319A14CB775D095AD1"
                             {
                             "Name" = "8:shell"
@@ -571,6 +618,108 @@
                             "Transitive" = "11:FALSE"
                             "ValueTypes" = "3:1"
                             "Value" = "8:HTTP Redirector URL"
+                            }
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_D2D441A3EF124BFE96D063CCDF24B492"
+                    {
+                    "Name" = "8:HttpRedirectorFile"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_A1FE09514728404391FAC5C2E4DFAA36"
+                            {
+                            "Name" = "8:DefaultIcon"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                }
+                                "Values"
+                                {
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_D43CD054CE244034B8C86CCA7E61C366"
+                                    {
+                                    "Name" = "8:"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:C:\\Windows\\System32\\url.dll,5"
+                                    }
+                                }
+                            }
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_D3B34B03E89C4C4BA0F770A98774618E"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_1341AC4E65D44CAD80F2AA8132FA2A4B"
+                                    {
+                                    "Name" = "8:open"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_7CADA9A42B9B4AFF870A89913BCB8D60"
+                                            {
+                                            "Name" = "8:command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_475A3778933341DF93F55C6D2A857264"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[ProgramFilesFolder][Manufacturer]\\[ProductName]\\HttpRedirector.exe\" \"%1\""
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7C7C3E85D1184E8E9E4EB3B8E630A0B6"
+                            {
+                            "Name" = "8:URL Protocol"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "ValueTypes" = "3:1"
+                            "Value" = "8:"
+                            }
+                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_A70FE022E3004E60834D6F94AA9B04CA"
+                            {
+                            "Name" = "8:"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "ValueTypes" = "3:1"
+                            "Value" = "8:HTML File"
                             }
                         }
                     }
@@ -993,9 +1142,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B353B2F99EB24B769A33139D8DB96FD1"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_83094FD004FC46808C9139915011117F"
             {
-            "SourcePath" = "8:..\\HttpRedirector\\obj\\Debug\\net10.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\HttpRedirector\\obj\\Release\\net10.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5B7DAD0EC5B845428DD00EF4BC2ACC41"

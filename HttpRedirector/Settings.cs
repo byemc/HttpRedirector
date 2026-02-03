@@ -31,6 +31,7 @@ namespace HttpRedirector
             if (settings is null)
             {
                 settings = new();
+                fs.SetLength(0);
                 serializer.Serialize(fs, settings);
             }
 

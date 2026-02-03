@@ -182,6 +182,22 @@ namespace HttpRedirector
             progressBar1.Enabled = false;
             progressBar1.Value = 0;
         }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            label2.Text = "When you press Enter...";
+            browserOpenTimer.Enabled = false;
+            progressBar1.Enabled = false;
+            progressBar1.Value = 0;
+
+            var settingsDlg = new SettingsForm();
+            var res = settingsDlg.ShowDialog();
+        }
     }
 
     // https://stackoverflow.com/questions/15091400/get-single-listview-selecteditem
