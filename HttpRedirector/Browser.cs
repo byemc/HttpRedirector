@@ -1,7 +1,5 @@
 ﻿using Microsoft.Win32;
-using System.Net.NetworkInformation;
-using System.Resources;
-using System.Windows.Forms;
+
 namespace HttpRedirector
 {
     internal class Browser

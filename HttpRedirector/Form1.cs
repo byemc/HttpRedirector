@@ -1,7 +1,5 @@
 ﻿using Microsoft.Win32;
-using System.Data;
 using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
 namespace HttpRedirector
 {

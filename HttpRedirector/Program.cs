@@ -1,6 +1,4 @@
 ﻿
-using System.Runtime.Versioning;
-
 namespace HttpRedirector
 {
     internal static class Program
