@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Data;
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace HttpRedirector
 {
@@ -61,52 +62,45 @@ namespace HttpRedirector
 
         internal static List<Browser> GetBrowsers()
         {
-            RegistryKey? userKeys = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet");
-            RegistryKey? localKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet");
+            RegistryKey? userKeys = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\RegisteredApplications");
+            RegistryKey? localKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\RegisteredApplications");
 
-            bool first = true;
+            List<Browser> browsers = [];
 
-            if (Program.Settings.DefaultBrowser is not null)
-                first = false;
-
-            var tmp = new Dictionary<string, Browser>();
-
-            if (userKeys is not null)
-                foreach (var key in userKeys.GetSubKeyNames())
+            // HKEY_CURRENT_USER first
+            var ValidBrowserProgIds = new List<string>();
+            foreach (var valueName in userKeys.GetValueNames())
+            {
+                if (ValidBrowserProgIds.Contains(valueName))
+                    continue;
+                if (Browser.IsBrowser(valueName))
                 {
-                    var reg = Registry.CurrentUser.OpenSubKey($"SOFTWARE\\Clients\\StartMenuInternet")?.OpenSubKey(key);
-                    if (reg.OpenSubKey("Capabilities") == null)
-                        continue;
-
-                    var browser = new Browser(reg);
-
-                    try
-                    {
-                        tmp.Add(key, browser);
-                    }
-                    catch (ArgumentException)
-                    {
-                        continue;
-                    }
+                    ValidBrowserProgIds.Add(valueName);
                 }
-            if (localKeys is not null)
-                foreach (var key in localKeys.GetSubKeyNames())
+            }
+
+            // Then HKEY_LOCAL_MACHINE
+            foreach (var valueName in localKeys.GetValueNames())
+            {
+                if (ValidBrowserProgIds.Contains(valueName))
+                    continue;
+                if (Browser.IsBrowser(valueName))
                 {
-                    var reg = Registry.LocalMachine.OpenSubKey($"SOFTWARE\\Clients\\StartMenuInternet")?.OpenSubKey(key);
-
-                    var browser = new Browser(reg);
-
-                    try
-                    {
-                        tmp.Add(key, browser);
-                    }
-                    catch (ArgumentException)
-                    {
-                        continue;
-                    }
+                    ValidBrowserProgIds.Add(valueName);
                 }
+            }
 
-            return tmp.Select(x => x.Value).ToList<Browser>();
+            foreach (var browserIds in ValidBrowserProgIds)
+            {
+                var brow = Browser.FromProgId(browserIds);
+                if (brow is not null)
+                {
+                    brow.Id = browserIds;
+                    browsers.Add(brow);
+                }
+            }
+
+            return browsers;
         }
 
         private void openBrowserAndQuit()

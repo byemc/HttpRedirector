@@ -44,6 +44,7 @@ namespace HttpRedirector
                 "byespace", "HttpRedirector", "Settings.xml");
             using var fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
             XmlSerializer serializer = new(typeof(Settings));
+            fs.SetLength(0); // Fixes a bug where the </Settings> at the end of the file stays because the file is never deleted
             serializer.Serialize(fs, this);
 
         }

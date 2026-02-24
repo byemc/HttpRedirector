@@ -169,7 +169,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:HTTP Redirector"
         "ProductCode" = "8:{EEB2B669-B0ED-4A19-B884-F78DF2B5C8A6}"
-        "PackageCode" = "8:{1D93661E-07C1-40AF-A4A3-62245DF7E8B5}"
+        "PackageCode" = "8:{B2EA260C-EC54-4717-ACEF-E988285E269E}"
         "UpgradeCode" = "8:{7CCE0963-83C9-4531-9D10-CB7EBAA31F78}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -203,7 +203,7 @@
                 {
                     "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_4D07D5A7D04E427480BDA2E24B1D0649"
                     {
-                    "Name" = "8:Software"
+                    "Name" = "8:SOFTWARE"
                     "Condition" = "8:"
                     "AlwaysCreate" = "11:FALSE"
                     "DeleteAtUninstall" = "11:FALSE"
@@ -212,7 +212,7 @@
                         {
                             "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_08FCD76B77D449878E4B457677D3C8C9"
                             {
-                            "Name" = "8:[Manufacturer]"
+                            "Name" = "8:byespace"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
                             "DeleteAtUninstall" = "11:FALSE"
@@ -221,7 +221,7 @@
                                 {
                                     "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_6090425D57054821923567FEA59FBA9E"
                                     {
-                                    "Name" = "8:HTTP Redirector"
+                                    "Name" = "8:HttpRedirector"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:TRUE"
@@ -456,7 +456,7 @@
                                     "Condition" = "8:"
                                     "Transitive" = "11:FALSE"
                                     "ValueTypes" = "3:1"
-                                    "Value" = "8:SOFTWARE\\[Manufacturer]\\HTTP Redirector\\Capabilities"
+                                    "Value" = "8:SOFTWARE\\byespace\\HttpRedirector\\Capabilities"
                                     }
                                 }
                             }

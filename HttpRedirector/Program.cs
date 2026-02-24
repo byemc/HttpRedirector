@@ -17,6 +17,7 @@ namespace HttpRedirector
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetHighDpiMode(HighDpiMode.PerMonitor);
 
             if (args.Count() >= 1)
                 Application.Run(new Form1(args));
