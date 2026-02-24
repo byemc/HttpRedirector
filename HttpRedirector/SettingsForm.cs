@@ -33,5 +33,11 @@ namespace HttpRedirector
             Program.Settings.Save();
             Close();
         }
+
+        // "Set as default" button
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
