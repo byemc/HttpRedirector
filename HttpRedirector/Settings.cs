@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Win32;
+using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
 namespace HttpRedirector
@@ -47,6 +49,16 @@ namespace HttpRedirector
             fs.SetLength(0); // Fixes a bug where the </Settings> at the end of the file stays because the file is never deleted
             serializer.Serialize(fs, this);
 
+        }
+
+        // Not really related to Settings but i guess it belongs here
+        public static bool IsDefaultBrowser()
+        {
+            var path = @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice";
+            var progId = Registry.GetValue(path, "ProgId", null) as string;
+            if (progId == "HttpRedirectorUrl")
+                return true;
+            return false;
         }
 
         //internal enum Errors : ulong

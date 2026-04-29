@@ -85,7 +85,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(373, 64);
+            tableLayoutPanel1.Size = new Size(400, 64);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // comboBox1
@@ -98,7 +98,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(103, 3);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(267, 23);
+            comboBox1.Size = new Size(294, 23);
             comboBox1.TabIndex = 2;
             comboBox1.ValueMember = "Id";
             // 
@@ -123,7 +123,7 @@
             flowLayoutPanel1.Controls.Add(label4);
             flowLayoutPanel1.Location = new Point(103, 32);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(267, 29);
+            flowLayoutPanel1.Size = new Size(294, 29);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // checkBox1
@@ -175,13 +175,13 @@
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 151);
             panel1.Name = "panel1";
-            panel1.Size = new Size(373, 30);
+            panel1.Size = new Size(400, 30);
             panel1.TabIndex = 1;
             // 
             // cancelButton
             // 
             cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            cancelButton.Location = new Point(214, 4);
+            cancelButton.Location = new Point(241, 4);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(75, 23);
             cancelButton.TabIndex = 1;
@@ -192,7 +192,7 @@
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveButton.Location = new Point(295, 4);
+            saveButton.Location = new Point(322, 4);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(75, 23);
             saveButton.TabIndex = 0;
@@ -206,7 +206,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(3, 130);
             label5.Name = "label5";
-            label5.Size = new Size(242, 15);
+            label5.Size = new Size(244, 15);
             label5.TabIndex = 2;
             label5.Text = "Set HTTP Redirector as your default browser?";
             // 
@@ -214,7 +214,7 @@
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Enabled = false;
-            button1.Location = new Point(280, 126);
+            button1.Location = new Point(307, 126);
             button1.Name = "button1";
             button1.Size = new Size(90, 23);
             button1.TabIndex = 3;
@@ -228,9 +228,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(3, 108);
             label6.Name = "label6";
-            label6.Size = new Size(336, 15);
+            label6.Size = new Size(378, 15);
             label6.TabIndex = 4;
-            label6.Text = "Unable to determine if HTTP Redirector is your default browser";
+            label6.Text = "Unable to determine if HTTP Redirector is your default system browser";
             // 
             // SettingsForm
             // 
@@ -239,7 +239,7 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             CancelButton = cancelButton;
-            ClientSize = new Size(373, 181);
+            ClientSize = new Size(400, 181);
             Controls.Add(label6);
             Controls.Add(button1);
             Controls.Add(label5);
@@ -247,7 +247,10 @@
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SettingsForm";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Settings";
+            TopMost = true;
             ((System.ComponentModel.ISupportInitialize)browserBindingSource).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

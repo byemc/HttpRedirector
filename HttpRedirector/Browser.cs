@@ -4,9 +4,9 @@ namespace HttpRedirector
 {
     internal class Browser
     {
-        public string Id { get; set; }
-        public string Name { get; init; }
-        public string ExePath { get; init; }
+        public string Id { get; set; } = "";
+        public string Name { get; init; } = "Unknown";
+        public string ExePath { get; init; } = @"iexplore.exe";
         public string? IconPath { get; init; }
         public System.Drawing.Icon? Icon { get; init; }
 

@@ -1,8 +1,64 @@
 ﻿
+using Microsoft.Win32;
+using System.Reflection;
+using Windows.UI.Popups;
+
 namespace HttpRedirector
 {
     internal static class Program
     {
+        internal static string? CurrentHTTPRedirectorPath => Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorUrl\shell\open\command", null, "") as string;
+
+        internal static bool AssociationsNeedUpdating()
+        {
+            // Only checks if an installed version of HTTP Redirector already exists and returns the version number if it does.
+            string me = Application.ExecutablePath;
+
+            var capabilitiesShellCommand = Registry.GetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\shell\open\command", null, "") as string;
+            var redirectorOpenCommand = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\shell\open\command", null, "") as string;
+            var redirectorHttpCommand = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorUrl\shell\open\command", null, "") as string;
+            if (me != capabilitiesShellCommand || me != redirectorOpenCommand || me != redirectorHttpCommand)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        internal static void UpdateAssociations()
+        {
+            // Update the HKEY_CURRENT_USER\Software\byespace\HttpRedirector key to use the currently
+            //      executing executable as the default. It shouldn't be set during installation.
+            string me = Application.ExecutablePath;
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector", "", "HTTP Redirector");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector", "InstalledVersion", Application.ProductVersion);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities", "ApplicationName", "HTTP Redirector");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities", "ApplicationDescription", "Helper application that redirects HTTP requests to other installed web browsers.");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\DefaultIcon", "", $"{me},0");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\shell\open\command", "", me);
+
+            // File associations
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile", "", "HTML File");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile", "URL Protocol", "");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\DefaultIcon", "", "C:\\Windows\\System32\\url.dll,5"); // TODO: Use something else!!!
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\shell\open\command", "", me);
+
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL", "", "HTML File");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL", "URL Protocol", "");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL\DefaultIcon", "", "C:\\Windows\\System32\\url.dll,5"); // TODO: Use something else!!!
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL\shell\open\command", "", me);
+        
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\FileAssociations", ".htm", "HttpRedirectorFile");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\FileAssociations", ".html", "HttpRedirectorFile");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\FileAssociations", ".xhtml", "HttpRedirectorFile");
+            
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\URLAssociations", "http", "HttpRedirectorUrl");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\URLAssociations", "https", "HttpRedirectorUrl");
+            //Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\URLAssociations", "ftp", "HttpRedirectorUrl");
+
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\RegisteredApplications", "ByespaceHttpRedirector", "Software\\byespace\\HttpRedirector\\Capabilities");
+        }
+
         internal static Settings Settings;
 
         /// <summary>

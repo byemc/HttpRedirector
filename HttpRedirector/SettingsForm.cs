@@ -1,5 +1,6 @@
 ﻿
 using System.Data;
+using Microsoft.Win32;
 
 namespace HttpRedirector
 {
@@ -16,6 +17,15 @@ namespace HttpRedirector
 
             checkBox1.Checked = Program.Settings.AutoLaunchBrowser;
             numericUpDown1.Value = Program.Settings.AutoLaunchSeconds;
+
+            // Check if the default browser settings needs updating
+            if (Program.AssociationsNeedUpdating())
+            {
+                var dlg = new UpdateBrowserForm();
+                dlg.ShowDialog();
+            }
+
+            UpdateDefaultBrowserText();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -35,9 +45,28 @@ namespace HttpRedirector
         }
 
         // "Set as default" button
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
+            // Technically, this should only work on Windows 11. But I don't have time to fix it for Windows 10 /shrug
+            await Windows.System.Launcher.LaunchUriAsync(
+                new System.Uri("ms-settings:defaultapps?registeredAppUser=ByespaceHttpRedirector")
+            );
+            UseWaitCursor = false;
+        }
 
+        private void UpdateDefaultBrowserText()
+        {
+            if (Settings.IsDefaultBrowser())
+            {
+                label6.Text = "HTTP Redirector is already your default browser!!";
+                button1.Enabled = false;
+            }
+            else
+            {
+                label6.Text = "HTTP Redirector is not your default browser.";
+                button1.Enabled = true;
+            }
         }
     }
 }
