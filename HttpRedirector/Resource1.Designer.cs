@@ -59,5 +59,15 @@ namespace HttpRedirector {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon html_file {
+            get {
+                object obj = ResourceManager.GetObject("html-file", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

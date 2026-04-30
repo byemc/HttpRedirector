@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
             label2 = new Label();
@@ -39,8 +40,8 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             button1 = new Button();
             quitButton = new Button();
-            browserOpenTimer = new System.Windows.Forms.Timer(components);
             settingsButton = new Button();
+            browserOpenTimer = new System.Windows.Forms.Timer(components);
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -98,7 +99,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(3, 63);
             label3.Name = "label3";
-            label3.Size = new Size(112, 15);
+            label3.Size = new Size(111, 15);
             label3.TabIndex = 6;
             label3.Text = "Using IEXPLORE.exe";
             // 
@@ -154,11 +155,6 @@
             quitButton.UseVisualStyleBackColor = true;
             quitButton.Click += quitButton_Click;
             // 
-            // browserOpenTimer
-            // 
-            browserOpenTimer.Interval = 50;
-            browserOpenTimer.Tick += browserOpenTimer_Tick;
-            // 
             // settingsButton
             // 
             settingsButton.Location = new Point(199, 3);
@@ -168,6 +164,11 @@
             settingsButton.Text = "&Settings";
             settingsButton.UseVisualStyleBackColor = true;
             settingsButton.Click += settingsButton_Click;
+            // 
+            // browserOpenTimer
+            // 
+            browserOpenTimer.Interval = 50;
+            browserOpenTimer.Tick += browserOpenTimer_Tick;
             // 
             // Form1
             // 
@@ -180,6 +181,7 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(flowLayoutPanel2);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             MaximumSize = new Size(450, 1000);
             Name = "Form1";

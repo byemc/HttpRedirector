@@ -9,9 +9,10 @@
       <EnableWindowsTargeting>True</EnableWindowsTargeting>
 	  <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
 	  <StartupObject>HttpRedirector.Program</StartupObject>
-	  <Version>1.0.1</Version>
+	  <Version>1.0.1.1</Version>
 	  <Title>HTTP Redirector</Title>
 	  <Company>byespace</Company>
+	  <Win32Resource>C:\Users\Bye\source\repos\HttpRedirector\HttpRedirector\Resources\resources.res</Win32Resource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>embedded</DebugType>
@@ -19,6 +20,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>embedded</DebugType>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Resources\httpredirector.ico" />
+	<Content Include="Resources\html-file.ico" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Update="Resource1.Designer.cs">
       <DesignTime>True</DesignTime>
