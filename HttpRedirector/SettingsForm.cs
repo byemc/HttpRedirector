@@ -22,7 +22,8 @@ namespace HttpRedirector
             if (Program.AssociationsNeedUpdating())
             {
                 var dlg = new UpdateBrowserForm();
-                dlg.ShowDialog();
+                if (!dlg.IsDisposed)
+                    dlg.ShowDialog();
             }
 
             UpdateDefaultBrowserText();

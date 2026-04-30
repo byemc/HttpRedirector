@@ -15,9 +15,24 @@ namespace HttpRedirector
         {
             InitializeComponent();
 
-            var current = Program.CurrentHTTPRedirectorPath;
             replacementTextBox.Text = Application.ExecutablePath;
-            currentTextBox.Text = current ?? "Not Installed";
+            replacementVersion.Text = Application.ProductVersion;
+            currentTextBox.Text = Program.CurrentHTTPRedirectorPath ?? "Not Installed";
+            currentVersionBox.Text = Program.CurrentHTTPRedirectorVersion ?? "";
+
+            var rel = Program.IsCurrentNewer();
+            switch (rel)
+            {
+                case 1:
+                    relativeVersion.Text = string.Format(relativeVersion.Text, "NEWER than");
+                    break;
+                case -1:
+                    relativeVersion.Text = string.Format(relativeVersion.Text, "OLDER than");
+                    break;
+                default:
+                    relativeVersion.Text = string.Format(relativeVersion.Text, "the SAME as");
+                    break;
+            }
 
             if (Program.CurrentHTTPRedirectorPath is null)
             {
@@ -29,8 +44,7 @@ namespace HttpRedirector
         private async void button1_Click(object sender, EventArgs e)
         {
             Program.UpdateAssociations();
-            //var dlg = new MessageDialog("Updated file associations");
-            //await dlg.ShowAsync();
+            MessageBox.Show("Updated file associations", "HTTP Redirector", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
 
