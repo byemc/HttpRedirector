@@ -34,7 +34,7 @@ namespace HttpRedirector
             var capabilitiesShellCommand = Registry.GetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\shell\open\command", null, "") as string;
             var redirectorOpenCommand = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\shell\open\command", null, "") as string;
             var redirectorHttpCommand = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorUrl\shell\open\command", null, "") as string;
-            if (me != capabilitiesShellCommand || me != redirectorOpenCommand || me != redirectorHttpCommand)
+            if (me != capabilitiesShellCommand || $"{me} \"%1\"" != redirectorOpenCommand || $"{me} \"%1\"" != redirectorHttpCommand)
             {
                 return true;
             }
