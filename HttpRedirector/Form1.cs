@@ -94,7 +94,9 @@ namespace HttpRedirector
                 if (brow is not null)
                 {
                     brow.Id = browserIds;
-                    browsers.Add(brow);
+                    if (Settings.Get().DefaultBrowser == brow.Id)
+                        browsers.Insert(0, brow);
+                    else browsers.Add(brow);
                 }
             }
 
