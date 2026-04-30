@@ -59,12 +59,12 @@ namespace HttpRedirector
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile", "", "HTML File");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile", "URL Protocol", "");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\DefaultIcon", "", "C:\\Windows\\System32\\url.dll,5"); // TODO: Use something else!!!
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\shell\open\command", "", me);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorFile\shell\open\command", "", $"{me} \"%1\"");
 
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL", "", "HTML File");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL", "URL Protocol", "");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL\DefaultIcon", "", "C:\\Windows\\System32\\url.dll,5"); // TODO: Use something else!!!
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL\shell\open\command", "", me);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\HttpRedirectorURL\shell\open\command", "", $"{me} \"%1\"");
         
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\FileAssociations", ".htm", "HttpRedirectorFile");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\FileAssociations", ".html", "HttpRedirectorFile");
