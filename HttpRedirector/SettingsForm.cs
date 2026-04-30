@@ -69,5 +69,19 @@ namespace HttpRedirector
                 button1.Enabled = true;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var dlg = MessageBox.Show("Would you like to delete HTTP Redirector's file associations (removing it as a default app) and erase its settings?", "HTTP Redirector", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlg == DialogResult.Yes)
+            {
+                Program.RemoveAssociations();
+                Program.Settings.Delete();
+
+                MessageBox.Show("HTTP Redirector's associations have been removed. You may now delete HTTP Redirector.\nTo use HTTP Redirector again, simply open it again.", "HTTP Redirector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Environment.Exit(0);
+                return;
+            }
+        }
     }
 }

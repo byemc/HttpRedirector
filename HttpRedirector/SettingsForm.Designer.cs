@@ -45,6 +45,8 @@
             label5 = new Label();
             button1 = new Button();
             label6 = new Label();
+            label7 = new Label();
+            button2 = new Button();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)browserBindingSource).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -85,7 +87,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(400, 64);
+            tableLayoutPanel1.Size = new Size(511, 64);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // comboBox1
@@ -98,7 +100,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(103, 3);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(294, 23);
+            comboBox1.Size = new Size(405, 23);
             comboBox1.TabIndex = 2;
             comboBox1.ValueMember = "Id";
             // 
@@ -123,7 +125,7 @@
             flowLayoutPanel1.Controls.Add(label4);
             flowLayoutPanel1.Location = new Point(103, 32);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(294, 29);
+            flowLayoutPanel1.Size = new Size(405, 29);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // checkBox1
@@ -173,15 +175,15 @@
             panel1.Controls.Add(cancelButton);
             panel1.Controls.Add(saveButton);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 151);
+            panel1.Location = new Point(0, 204);
             panel1.Name = "panel1";
-            panel1.Size = new Size(400, 30);
+            panel1.Size = new Size(511, 30);
             panel1.TabIndex = 1;
             // 
             // cancelButton
             // 
             cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            cancelButton.Location = new Point(241, 4);
+            cancelButton.Location = new Point(352, 4);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(75, 23);
             cancelButton.TabIndex = 1;
@@ -192,7 +194,7 @@
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveButton.Location = new Point(322, 4);
+            saveButton.Location = new Point(433, 4);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(75, 23);
             saveButton.TabIndex = 0;
@@ -204,7 +206,7 @@
             // 
             label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new Point(3, 130);
+            label5.Location = new Point(3, 156);
             label5.Name = "label5";
             label5.Size = new Size(244, 15);
             label5.TabIndex = 2;
@@ -214,9 +216,9 @@
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Enabled = false;
-            button1.Location = new Point(307, 126);
+            button1.Location = new Point(352, 152);
             button1.Name = "button1";
-            button1.Size = new Size(90, 23);
+            button1.Size = new Size(156, 23);
             button1.TabIndex = 3;
             button1.Text = "Set as default";
             button1.UseVisualStyleBackColor = true;
@@ -226,11 +228,30 @@
             // 
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new Point(3, 108);
+            label6.Location = new Point(3, 134);
             label6.Name = "label6";
             label6.Size = new Size(378, 15);
             label6.TabIndex = 4;
             label6.Text = "Unable to determine if HTTP Redirector is your default system browser";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 182);
+            label7.Name = "label7";
+            label7.Size = new Size(295, 15);
+            label7.TabIndex = 5;
+            label7.Text = "Want to remove HTTP Redirector as a default browser?";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(352, 178);
+            button2.Name = "button2";
+            button2.Size = new Size(156, 23);
+            button2.TabIndex = 6;
+            button2.Text = "Remove from computer";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // SettingsForm
             // 
@@ -239,7 +260,9 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             CancelButton = cancelButton;
-            ClientSize = new Size(400, 181);
+            ClientSize = new Size(511, 234);
+            Controls.Add(button2);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(button1);
             Controls.Add(label5);
@@ -277,5 +300,7 @@
         private Label label5;
         private Button button1;
         private Label label6;
+        private Label label7;
+        private Button button2;
     }
 }

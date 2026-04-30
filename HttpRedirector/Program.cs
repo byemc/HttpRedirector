@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Win32;
 using System.Reflection;
+using System.Security.Policy;
 using Windows.UI.Popups;
 
 namespace HttpRedirector
@@ -75,6 +76,19 @@ namespace HttpRedirector
             //Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities\URLAssociations", "ftp", "HttpRedirectorUrl");
 
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\RegisteredApplications", "ByespaceHttpRedirector", "Software\\byespace\\HttpRedirector\\Capabilities");
+        }
+
+        internal static void RemoveAssociations()
+        {
+            var regKeyA = Registry.CurrentUser.OpenSubKey(@"Software\byespace", true);
+            regKeyA?.DeleteSubKeyTree("HttpRedirector", false);
+
+            var regKeyB = Registry.CurrentUser.OpenSubKey(@"Software\Classes", true);
+            regKeyB?.DeleteSubKeyTree("HttpRedirectorFile", false);
+            regKeyB?.DeleteSubKeyTree("HttpRedirectorURL", false);
+
+            var regKeyC = Registry.CurrentUser.OpenSubKey(@"Software\RegisteredApplications", true);
+            regKeyC?.DeleteValue("ByespaceHttpRedirector", false);
         }
 
         internal static Settings Settings;

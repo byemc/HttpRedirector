@@ -1,4 +1,6 @@
 ﻿
+using static System.Net.WebRequestMethods;
+
 namespace HttpRedirector
 {
     public partial class UpdateBrowserForm : Form
@@ -10,7 +12,16 @@ namespace HttpRedirector
             replacementTextBox.Text = Application.ExecutablePath;
             replacementVersion.Text = Program.RunningVersion.ToString();
             currentTextBox.Text = Program.CurrentHTTPRedirectorPath ?? "Not Installed";
-            currentVersionBox.Text = Program.CurrentVersion.ToString();
+            currentVersionBox.Text = Program.CurrentHTTPRedirectorVersion is not null
+                ? Program.CurrentVersion.ToString()
+                : "-";
+
+            if (Program.CurrentHTTPRedirectorPath is null)
+            {
+                label1.Text = @"HTTP Redirector isn't configured to be a default browser on this computer.
+Would you like to add the system associations for HTTP Redirector?";
+            }
+
 
             var rel = Program.IsCurrentNewer();
             switch (rel)
@@ -26,11 +37,11 @@ namespace HttpRedirector
                     break;
             }
 
-            if (Program.CurrentHTTPRedirectorPath is null)
-            {
-                Program.UpdateAssociations();
-                Close();
-            }
+            //if (Program.CurrentHTTPRedirectorPath is null)
+            //{
+            //    Program.UpdateAssociations();
+            //    Close();
+            //}
         }
 
         private async void button1_Click(object sender, EventArgs e)

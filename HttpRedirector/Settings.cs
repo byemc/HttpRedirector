@@ -48,7 +48,13 @@ namespace HttpRedirector
             XmlSerializer serializer = new(typeof(Settings));
             fs.SetLength(0); // Fixes a bug where the </Settings> at the end of the file stays because the file is never deleted
             serializer.Serialize(fs, this);
+        }
 
+        public void Delete()
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "byespace", "HttpRedirector", "Settings.xml");
+            File.Delete(path);
         }
 
         // Not really related to Settings but i guess it belongs here
