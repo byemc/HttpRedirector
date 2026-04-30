@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Windows.UI.Popups;
-
+﻿
 namespace HttpRedirector
 {
     public partial class UpdateBrowserForm : Form
@@ -16,9 +8,9 @@ namespace HttpRedirector
             InitializeComponent();
 
             replacementTextBox.Text = Application.ExecutablePath;
-            replacementVersion.Text = Application.ProductVersion;
+            replacementVersion.Text = Program.RunningVersion.ToString();
             currentTextBox.Text = Program.CurrentHTTPRedirectorPath ?? "Not Installed";
-            currentVersionBox.Text = Program.CurrentHTTPRedirectorVersion ?? "";
+            currentVersionBox.Text = Program.CurrentVersion.ToString();
 
             var rel = Program.IsCurrentNewer();
             switch (rel)

@@ -10,10 +10,13 @@ namespace HttpRedirector
         internal static string? CurrentHTTPRedirectorPath => Registry.GetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\shell\open\command", null, "") as string;
         internal static string? CurrentHTTPRedirectorVersion => Registry.GetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector", "InstalledVersion", "") as string;
 
+        internal static Version RunningVersion => new Version((Application.ProductVersion ?? "0.0.0").Split("+")[0]);
+        internal static Version CurrentVersion => new Version((CurrentHTTPRedirectorVersion ?? "0.0.0").Split("+")[0]);
+
         internal static int IsCurrentNewer()
         {
-            var running = new Version((Application.ProductVersion ?? "0.0.0").Split("+")[0]);
-            var current = new Version((CurrentHTTPRedirectorVersion ?? "0.0.0").Split("+")[0]);
+            var running = RunningVersion;
+            var current = CurrentVersion;
 
             if (running > current)
                 return 1;
@@ -47,9 +50,9 @@ namespace HttpRedirector
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector", "", "HTTP Redirector");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector", "InstalledVersion", Application.ProductVersion);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities", "ApplicationName", "HTTP Redirector");
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities", "ApplicationIcon", $"{me},0");
+            //Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities", "ApplicationIcon", $"{me},0");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\Capabilities", "ApplicationDescription", "Helper application that redirects HTTP requests to other installed web browsers.");
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\DefaultIcon", "", $"{me},0");
+            //Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\DefaultIcon", "", $"{me},0");
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\byespace\HttpRedirector\shell\open\command", "", me);
 
             // File associations

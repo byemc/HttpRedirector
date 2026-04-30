@@ -47,7 +47,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(4, 6);
             label1.Name = "label1";
-            label1.Size = new Size(320, 30);
+            label1.Size = new Size(322, 30);
             label1.TabIndex = 0;
             label1.Text = "There is another copy of HTTP Redirector set up.\r\nWould you like to use this copy of HTTP Redirector instead?";
             // 
@@ -155,7 +155,7 @@
             relativeVersion.AutoSize = true;
             relativeVersion.Location = new Point(122, 161);
             relativeVersion.Name = "relativeVersion";
-            relativeVersion.Size = new Size(202, 15);
+            relativeVersion.Size = new Size(203, 15);
             relativeVersion.TabIndex = 11;
             relativeVersion.Text = "This version is {0} the current verison.";
             // 
@@ -179,12 +179,12 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "UpdateBrowserForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Update default browser associations?";
-            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -164,15 +164,21 @@ namespace HttpRedirector
             openBrowserAndQuit();
         }
 
+        private void Abort()
+        {
+            label2.Text = "When you press Enter...";
+            browserOpenTimer.Enabled = false;
+            progressBar1.Enabled = false;
+            progressBar1.Value = 0;
+            TopMost = false;
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             label3.Text = String.Format("Using {0}", listView1.GetSelectedItem()?.Text);
             if (!StartAcceptingEvents)
                 return;
-            label2.Text = "When you press Enter...";
-            browserOpenTimer.Enabled = false;
-            progressBar1.Enabled = false;
-            progressBar1.Value = 0;
+            Abort();
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -182,11 +188,7 @@ namespace HttpRedirector
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            label2.Text = "When you press Enter...";
-            browserOpenTimer.Enabled = false;
-            progressBar1.Enabled = false;
-            progressBar1.Value = 0;
-
+            Abort();
             var settingsDlg = new SettingsForm();
             var res = settingsDlg.ShowDialog();
         }

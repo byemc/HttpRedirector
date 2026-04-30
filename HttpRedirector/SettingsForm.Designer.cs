@@ -250,7 +250,6 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Settings";
-            TopMost = true;
             ((System.ComponentModel.ISupportInitialize)browserBindingSource).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
